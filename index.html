@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Mehak 💖</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #f6c1cc, #fde2e4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.page {
+  display: none;
+  background: white;
+  padding: 35px 25px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+  max-width: 380px;
+  width: 90%;
+}
+
+.page.active {
+  display: block;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  color: #c9184a;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 17px;
+  color: #333;
+  line-height: 1.6;
+}
+
+button {
+  margin-top: 25px;
+  font-size: 17px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background: #c9184a;
+  color: white;
+}
+
+.buttons {
+  margin-top: 30px;
+  position: relative;
+  height: 120px;
+}
+
+#no {
+  background: #eee;
+  color: #333;
+  position: absolute;
+}
+
+.music-btn {
+  margin-top: 15px;
+  font-size: 14px;
+  background: none;
+  color: #c9184a;
+  border: none;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/10/09/audio_7b1f9d7a7c.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <h1>Mehak 💖</h1>
+  <div class="subtitle">
+    (Also my Begham Sahiba, Baby gurl, My teddy bear & Sexy 😌)
+  </div>
+
+  <p>
+    Before I ask you anything…  
+    take a second, breathe,  
+    and listen with your heart 💕
+  </p>
+
+  <button onclick="nextPage()">Continue →</button>
+  <br>
+  <button class="music-btn" onclick="playMusic()">🎶 Tap to start music</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <h1>My Love 🌸</h1>
+
+  <p>
+    Loving you has been my favorite habit.  
+    From laughter to silence,  
+    from chaos to calm —  
+    you are home to me.
+    <br><br>
+    Lets turn white walls Gary 😏  
+    I love lotus 🌸
+  </p>
+
+  <button onclick="nextPage()">One last question →</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <h1>So tell me… 💕</h1>
+
+  <p>
+    Will you be my Valentine?  
+    Today, tomorrow, always 💖
+  </p>
+
+  <div class="buttons">
+    <button onclick="yesClick()">YES 💖</button>
+    <button id="no" onmouseover="moveNo()">NO 🙃</button>
+  </div>
+</div>
+
+<script>
+let current = 1;
+
+function nextPage() {
+  document.getElementById("page" + current).classList.remove("active");
+  current++;
+  document.getElementById("page" + current).classList.add("active");
+}
+
+function moveNo() {
+  const no = document.getElementById("no");
+  no.style.left = Math.random() * 240 + "px";
+  no.style.top = Math.random() * 80 + "px";
+}
+
+function yesClick() {
+  document.body.innerHTML = `
+    <div style="
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      background:linear-gradient(135deg,#f6c1cc,#fde2e4);
+      font-family:'Playfair Display',serif;
+      text-align:center;
+      padding:20px;
+    ">
+      <h1 style="color:#c9184a;">I knew it 😍</h1>
+      <p style="font-family:Poppins,sans-serif; font-size:22px;">
+        My Mehak,  
+        you’ve always been my Valentine ❤️
+      </p>
+    </div>
+  `;
+}
+
+function playMusic() {
+  document.getElementById("music").play();
+}
+</script>
+
+</body>
+</html>
